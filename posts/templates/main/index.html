@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ласкаво Просимо{% endblock title %}
+
+{% block content %}
+    <div class="col-lg-8">
+        <!-- Featured post -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="small text-muted">{{ newest_post.created_at }}</div>
+                <h2 class="card-title">{{ newest_post.title }}</h2>
+                <p class="card-text">{{ newest_post.description }}</p>
+                <a class="btn btn-primary" href="{% url 'post_detail' newest_post.slug %}">Read more →</a>
+            </div>
+        </div>
+
+        <!-- Posts grid -->
+        <div class="row row-cols-1 row-cols-lg-2 g-4">
+            {% for post in posts %}
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="small text-muted">{{ post.created_at }}</div>
+                            <h2 class="card-title h4">{{ post.title }}</h2>
+                            <p class="card-text">{{ post.description }}</p>
+                            <a class="btn btn-primary" href="{% url 'post_detail' post.slug %}">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
