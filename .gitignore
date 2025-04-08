@@ -37,8 +37,7 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
-htmlcov/
-.tox/
+htmlcov/ .tox/
 .nox/
 .coverage
 .coverage.*
@@ -171,4 +170,5 @@ cython_debug/
 .ruff_cache/
 
 # PyPI configuration file
-.pypirc
+.pypir
+*.dbsqlite3
